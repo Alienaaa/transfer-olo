@@ -1,26 +1,60 @@
-<!DOCTYPE html>
-<html>
-<head>
-<title>转移olo</title>
-</head>
-<body>
-<form>
-转移帖子id:<br>
-<input type="text" name="tid" value="">
-<br>
-接收饼干id:<br>
-<input type="text" name="receive" value="">
-<br>
-转移饼干id:（用逗号隔开）<br>
-<input type="text" name="send" value="">
-<br>
-是否转移饼干中全部olo:<br>
-<input type="text" name="is_all" value="">
-<br>
-每次转移olo数额:<br>
-<input type="text" name="num_olo" value="">
-<br><br>
-<input type="submit" value="Submit">
-</form> 
-</body>
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+    <title>transfer olo</title>
+  </head>
+  <body class="bg-light">
+    <h1>transfer olo</h1>
+    <form class="needs-validation" novalidate>
+      <div class="form-row">
+        <label for="validationCustom01">转移帖子id</label>
+        <input type="text" class="form-control" id="validationCustom01" value="" required>
+        <small id="idHelp" class="form-text text-muted">例: https://www.bilibilipy.net/t/659022?page=1 的情况下就是 659022</small>
+      </div>
+      <div class="form-row">
+        <label for="validationCustom02">接收饼干id</label>
+        <input type="text" class="form-control" id="validationCustom02" value="" required>
+      </div>
+      <div class="form-row">
+        <label for="validationCustom03">转移饼干id（用逗号隔开）</label>
+        <textarea class="form-control" rows="3" id="validationCustom03" value="" required></textarea>
+      </div>
+      <fieldset class="form-group">
+        <div class="row">
+          <legend class="col-form-label col-sm-2 pt-0">是否转移饼干中全部olo</legend>
+          <div class="col-sm-10">
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked>
+              <label class="form-check-label" for="gridRadios1">
+                是
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2">
+              <label class="form-check-label" for="gridRadios2">
+                否
+              </label>
+            </div>
+          </div>
+        </div>
+      </fieldset>
+      <div class="form-row">
+        <label for="validationCustom05">每次转移olo数额</label>
+        <input type="text" class="form-control" id="validationCustom05" value="">
+      </div>
+    </form>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+  </body>
 </html>
