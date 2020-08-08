@@ -15,24 +15,24 @@
       <h2 style="margin:30px 0">转移olo</h2>
       <form class="needs-validation" novalidate>
         <div class="form-row">
-          <label for="validationCustom01">转移帖子id</label>
-          <input type="text" class="form-control" id="validationCustom01" value="" required>
+          <label for="tid">转移帖子id</label>
+          <input type="text" class="form-control" id="tid" value="" required>
           <small id="idHelp" class="form-text text-muted">例: https://www.bilibilipy.net/t/659022?page=1 的情况下为 659022</small>
           <div class="invalid-feedback">
               转移帖子id不能为空
           </div>
         </div>
         <div class="form-row">
-          <label for="validationCustom02">转入饼干id</label>
-          <input type="text" class="form-control" id="validationCustom02" value="" required>
+          <label for="receive-id">转入饼干id</label>
+          <input type="text" class="form-control" id="receive-id" value="" required>
           <small id="idHelp" class="form-text text-muted">例: examplereceiveid </small>
           <div class="invalid-feedback">
               转入饼干id不能为空
           </div>
         </div>
         <div class="form-row">
-          <label for="validationCustom03">转出饼干id（用逗号隔开）</label>
-          <textarea class="form-control" rows="3" id="validationCustom03" value="" required></textarea>
+          <label for="send-ids">转出饼干id（用逗号隔开）</label>
+          <textarea class="form-control" rows="3" id="send-ids" value="" required></textarea>
           <small id="idHelp" class="form-text text-muted">例: examplesendid1,examplesendid2,examplesendid3 </small>
           <div class="invalid-feedback">
               转出饼干id不能为空
@@ -44,25 +44,25 @@
           </div>
           <div class="form-row">    
             <div class="form-check">
-              <input class="form-check-input is-all" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked>
-              <label class="form-check-label is_all" for="gridRadios1">
+              <input class="form-check-input" id="is-all-yes" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked>
+              <label class="form-check-label" for="gridRadios1">
                 是
               </label>
             </div>
             <div class="form-check">
-              <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2">
+              <input class="form-check-input" id="is-all-no" type="radio" name="gridRadios" id="gridRadios2" value="option2">
               <label class="form-check-label" for="gridRadios2">
                 否
               </label>
             </div>   
           </div>
         </fieldset>
-        <div class="form-row set-olo" style="display:none;">
+        <div class="form-row" id="set-olo" style="display:none;">
           <label for="validationCustom05">每次转移olo数额</label>
-          <input type="text" class="form-control" id="validationCustom05" value="">
+          <input type="text" class="form-control" id="set-olo-value" value="30">
         </div>
         <div class="form-row" >
-          <button type="submit" class="btn btn-primary btn-block">提交</button>
+          <button type="submit" id="submit-btn" class="btn btn-primary btn-block">提交</button>
         </div>
       </form>
     </div>
