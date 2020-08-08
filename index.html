@@ -7,43 +7,54 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-
+    <link href="style.css" rel="stylesheet">
     <title>转移olo</title>
   </head>
   <body class="bg-light">
     <div class="container">
-      <h1>转移olo</h1>
+      <h2 style="margin:30px 0">转移olo</h2>
       <form class="needs-validation" novalidate>
         <div class="form-row">
           <label for="validationCustom01">转移帖子id</label>
           <input type="text" class="form-control" id="validationCustom01" value="" required>
-          <small id="idHelp" class="form-text text-muted">例: https://www.bilibilipy.net/t/659022?page=1 的情况下就是 659022</small>
+          <small id="idHelp" class="form-text text-muted">例: https://www.bilibilipy.net/t/659022?page=1 的情况下为 659022</small>
+          <div class="invalid-feedback">
+              转移帖子id不能为空
+          </div>
         </div>
         <div class="form-row">
-          <label for="validationCustom02">接收饼干id</label>
+          <label for="validationCustom02">转入饼干id</label>
           <input type="text" class="form-control" id="validationCustom02" value="" required>
+          <small id="idHelp" class="form-text text-muted">例: examplereceiveid </small>
+          <div class="invalid-feedback">
+              转入饼干id不能为空
+          </div>
         </div>
         <div class="form-row">
-          <label for="validationCustom03">转移饼干id（用逗号隔开）</label>
+          <label for="validationCustom03">转出饼干id（用逗号隔开）</label>
           <textarea class="form-control" rows="3" id="validationCustom03" value="" required></textarea>
+          <small id="idHelp" class="form-text text-muted">例: examplesendid1,examplesendid2,examplesendid3 </small>
+          <div class="invalid-feedback">
+              转出饼干id不能为空
+          </div>
         </div>
         <fieldset class="form-group">
-          <div class="row">
-            <legend class="col-form-label col-sm-2 pt-0">是否转移饼干中全部olo</legend>
-            <div class="col-sm-10">
-              <div class="form-check">
-                <input class="form-check-input is-all" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked>
-                <label class="form-check-label is_all" for="gridRadios1">
-                  是
-                </label>
-              </div>
-              <div class="form-check">
-                <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2">
-                <label class="form-check-label" for="gridRadios2">
-                  否
-                </label>
-              </div>
+          <div class="form-row" style="margin-bottom: -10px;">
+            <label class="">是否转移饼干中全部olo</label>
+          </div>
+          <div class="form-row">    
+            <div class="form-check">
+              <input class="form-check-input is-all" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked>
+              <label class="form-check-label is_all" for="gridRadios1">
+                是
+              </label>
             </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2">
+              <label class="form-check-label" for="gridRadios2">
+                否
+              </label>
+            </div>   
           </div>
         </fieldset>
         <div class="form-row set-olo" style="display:none;">
@@ -51,7 +62,7 @@
           <input type="text" class="form-control" id="validationCustom05" value="">
         </div>
         <div class="form-row" >
-          <button type="submit" class="btn btn-primary">提交</button>
+          <button type="submit" class="btn btn-primary btn-block">提交</button>
         </div>
       </form>
     </div>
