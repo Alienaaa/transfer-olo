@@ -48,8 +48,6 @@
           var reward_url='https://www.cpszd.com/api/comment/reward/' + url_id + '/';
           const info_url = 'https://www.cpszd.com/api/userinfo'
           
-
-
           const reply_xhr = new XMLHttpRequest();
           reply_xhr.onreadystatechange = function() {
             if (reply_xhr.readyState === 4 && reply_xhr.status === 200) {
@@ -58,27 +56,36 @@
               pid = response_json['data']['pid'];
               reward_url = reward_url + String(pid);
               reward();
-              alert("成功")             
+              alert("转移完成！")            
             }else{
-              alert("错误")
+              // alert("转移失败！")
             }
           }
-          reply_xhr.open("POST", reply_url);
+          reply_xhr.open("POST", reply_url, false);
           reply_xhr.setRequestHeader("userid", receive_id);
-          result = reply_xhr.send(reply_fd);
+          // alert(reply_xhr.readyState)
+          reply_xhr.send(reply_fd);
 
           function reward(){
             for(const id of send_ids) { 
               var tmp = reward_number;
               if (is_all == true){
                 get_olo(id,function(olo_number){
-                  tmp = olo_number;
-                  console.log(tmp);
+                  var tmp = olo_number;
                   var reward_fd = new FormData();
                   reward_fd.append('gold', tmp);
                   reward_fd.append('content', '转移全部剩余olo');
-                  const reward_xhr = new XMLHttpRequest();  
-                  reward_xhr.open("POST", reward_url);
+                  const reward_xhr = new XMLHttpRequest(); 
+                  reward_xhr.onreadystatechange = function () {
+                    if (reward_xhr.readyState === 4 && reward_xhr.status === 200) {
+                      if(id == send_ids[send_ids.length-1]){
+                        // alert("转移成功！")
+                      }                     
+                    } else {
+                      // alert("转移失败！")
+                    }
+                  } 
+                  reward_xhr.open("POST", reward_url, false);
                   reward_xhr.setRequestHeader("userid", id)
                   reward_xhr.send(reward_fd);
                 })
@@ -87,8 +94,18 @@
                 var reward_fd = new FormData();
                 reward_fd.append('gold', tmp);
                 reward_fd.append('content', '转移固定数值olo');
-                const reward_xhr = new XMLHttpRequest();  
-                reward_xhr.open("POST", reward_url);
+                alert("转移固定")
+                const reward_xhr = new XMLHttpRequest();
+                reward_xhr.onreadystatechange = function () {
+                  if (reward_xhr.readyState === 4 && reward_xhr.status === 200) {
+                    if(id == send_ids[send_ids.length-1]){
+                      // alert("转移成功！")
+                    }                     
+                  } else {
+                    // alert("转移失败！")
+                  }
+                }   
+                reward_xhr.open("POST", reward_url, false);
                 reward_xhr.setRequestHeader("userid", id)
                 reward_xhr.send(reward_fd);
               }  
@@ -97,19 +114,20 @@
 
           function get_olo(id,callback){
             const olo_xhr = new XMLHttpRequest(); 
-            olo_xhr.open("GET", info_url, true);
-            olo_xhr.setRequestHeader("userid", id);
-            olo_xhr.send();
             olo_xhr.onreadystatechange = function() {
-              if (olo_xhr.readyState === 4) {
+              if (olo_xhr.readyState === 4 && olo_xhr.status === 200) {
                 var responseText = olo_xhr.responseText;
                 var response_json = JSON.parse(responseText);
                 var olo_number = response_json['data']['olo'];
                 callback(olo_number);
               } else{
-                alert("错误")
+                // alert("错误2")
+                console.log(olo_xhr.readyState)
               }
             }
+            olo_xhr.open("GET", info_url, false);
+            olo_xhr.setRequestHeader("userid", id);
+            olo_xhr.send();
           }    
         }
       }, false)
@@ -125,9 +143,6 @@
       if(is_all_no.checked == true){
         set_olo.style.display = "block"
       }
-    }, false) 
-    
+    }, false)     
   }, false)
-  
-
 }())
