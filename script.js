@@ -94,7 +94,7 @@
                 var reward_fd = new FormData();
                 reward_fd.append('gold', tmp);
                 reward_fd.append('content', '转移固定数值olo');
-                alert("转移固定")
+                // alert("转移固定")
                 const reward_xhr = new XMLHttpRequest();
                 reward_xhr.onreadystatechange = function () {
                   if (reward_xhr.readyState === 4 && reward_xhr.status === 200) {
